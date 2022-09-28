@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -28,7 +27,7 @@ class LoginViewController: UIViewController {
         TwitterAPICaller.client?.login(url:  myUrl, success: {
             UserDefaults.standard.set(true, forKey: "loggedIn")
             self.performSegue(withIdentifier: "loginToHome", sender: self)
-        }, failure: {(Error) in print("Login Failure.")})
+        }, failure: {(Error) in print("Login Failure. " + Error.localizedDescription)})
     
     }
     
